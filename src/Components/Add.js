@@ -5,12 +5,12 @@ import Header from './Header'
 const Add = () => {
     var [name,setname]=useState([])
     var [friendName,setfriendName]=useState([])
-    var [FriendsNickName,setFriendNickName]=useState([])
-    var [DescribedYourFriend,setDescribedYourFriend]=useState({})
+    var [friendNickName,setfriendNickName]=useState([])
+    var [DescribeYourFriend,setDescribeYourFriend]=useState([])
     const subdata=()=>{
-        const  data={"name":name,"friendName":friendName,"FriendsNickName":FriendsNickName,"DescribedYourFriend":DescribedYourFriend}
+        const  data={"name":name,"friendName":friendName,"friendNickName":friendNickName,"DescribeYourFriend":DescribeYourFriend}
         console.log(data)
-        axios.post("https://mylinkurcodesapp.herokuapp.com/addcourse",data).then(
+        axios.post("http://dummyapifriends.herokuapp.com/add",data).then(
         (response)=>
         {
             console.log(response.data)
@@ -23,7 +23,8 @@ const Add = () => {
                 alert("failed ")
             }
         
-        })
+        }
+        )
         }
 
   return (
@@ -43,18 +44,18 @@ const Add = () => {
                     <input  onChange={(c)=>{setfriendName(c.target.value)} } type="text" className="form-control"/>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <label for="" className="for">FriendsNickName</label>
-                    <input  onChange={(c)=>{setFriendNickName(c.target.value)} }type="text" className="form-control"/>
+                    <label for="" className="for">friendNickName</label>
+                    <input  onChange={(c)=>{setfriendNickName(c.target.value)} }type="text" className="form-control"/>
 
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
-                    <label for="" className="for">DescribedYourFriend</label>
-                   <textarea  onChange={(c)=>{setDescribedYourFriend(c.target.value)} }name="" id="" cols="30" rows="10" className="form-control"></textarea>
+                    <label for="" className="for">DescribeYourFriend</label>
+                   <textarea  onChange={(c)=>{setDescribeYourFriend(c.target.value)} }name="" id="" cols="30" rows="10" className="form-control"></textarea>
                    
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     
-                <button className="btn btn-success">SUBMIT</button>
+                <button  onClick={subdata}className="btn btn-success">SUBMIT</button>
                 </div>
             </div>
         </div>
