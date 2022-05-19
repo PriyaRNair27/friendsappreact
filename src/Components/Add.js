@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Add = () => {
+    var [name,setname]=useState([])
+    var [friendName,setfriendName]=useState([])
+    var [FriendsNickName,setFriendNickName]=useState([])
+    var [DescribedYourFriend,setDescribedYourFriend]=useState({})
+    const subdata=()=>{
+        const  data={"name":name,"friendName":friendName,"FriendsNickName":FriendsNickName,"DescribedYourFriend":DescribedYourFriend}
+        console.log(data)
+        }
+
   return (
     <div>
 
@@ -11,20 +20,20 @@ const Add = () => {
             <div className="row">
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <label for="" className="for">name</label>
-                    <input type="text" className="form-control"/>
+                    <input  onChange={(c)=>{setname(c.target.value)} } type="text" className="form-control"/>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <label for="" className="for">friendName</label>
-                    <input type="text" className="form-control"/>
+                    <input  onChange={(c)=>{setfriendName(c.target.value)} } type="text" className="form-control"/>
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <label for="" className="for">FriendsNickName</label>
-                    <input type="text" className="form-control"/>
+                    <input  onChange={(c)=>{setFriendNickName(c.target.value)} }type="text" className="form-control"/>
 
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
                     <label for="" className="for">DescribedYourFriend</label>
-                   <textarea name="" id="" cols="30" rows="10" className="form-control"></textarea>
+                   <textarea  onChange={(c)=>{setDescribedYourFriend(c.target.value)} }name="" id="" cols="30" rows="10" className="form-control"></textarea>
                    
                 </div>
                 <div className="col col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12">
