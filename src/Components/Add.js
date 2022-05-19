@@ -10,7 +10,7 @@ const Add = () => {
     const subdata=()=>{
         const  data={"name":name,"friendName":friendName,"FriendsNickName":FriendsNickName,"DescribedYourFriend":DescribedYourFriend}
         console.log(data)
-        axios.post("https://mylinkurcodesapp.herokuapp.com/addcourse",data).then(
+        axios.post("http://dummyapifriends.herokuapp.com/view",data).then(
         (response)=>
         {
             console.log(response.data)
