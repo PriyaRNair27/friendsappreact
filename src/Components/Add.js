@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React, { useState } from 'react'
+import Header from './Header'
 
 const Add = () => {
     var [name,setname]=useState([])
@@ -8,11 +10,25 @@ const Add = () => {
     const subdata=()=>{
         const  data={"name":name,"friendName":friendName,"FriendsNickName":FriendsNickName,"DescribedYourFriend":DescribedYourFriend}
         console.log(data)
+        axios.post("https://mylinkurcodesapp.herokuapp.com/addcourse",data).then(
+        (response)=>
+        {
+            console.log(response.data)
+            if(response.data.status=="success")
+            {
+                alert("successfully inserted")
+            }
+            else
+            {
+                alert("failed ")
+            }
+        
+        })
         }
 
   return (
     <div>
-
+<Header/>
 
 <div className="container">
     <div className="row">
